@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  #signup-container
+    form(method='post')#login-form.well.span4
+      h1 #{title}
+        input(type='text' name='realname' value='Name')
+        input(type='email' name='email' value='email')
+      hr
+      input(type='text' name='username' value='Username')
+      input(type='password' name='password' value='Password')
+
+      input(type='submit' value='Submit')

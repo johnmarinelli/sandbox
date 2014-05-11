@@ -4,3 +4,8 @@ block content
   #login-container
     form(method='post')#login-form.well.span4
       h1 #{title}
+        input(type='text' name='username')
+        input(type='password' name='password')
+        input(type='submit')
+    a(href='/signup') Signup
+    a(href='#') Forgot Password
