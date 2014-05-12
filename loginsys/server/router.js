@@ -71,4 +71,27 @@ module.exports = function(app){
 			});
 		});	
 	});
+
+	/* UPLOADING A FILE */
+    app.get('/upload', function(req, res){
+		res.render('upload');
+	});
+
+	app.post('/upload', function(req, res){
+		var fs = require('fs');
+		var path = require('path');
+		var Busboy = require('busboy');
+
+		var busboy = new Busboy({ headers: req.headers });
+		busboy.on('file', function(fieldname, file, filename, encoding, mimetype){
+			var newPath = __dirname + '/uploads/' + path.basename(fieldname);
+			file.pipe(fs.createWriteStream(newPath));
+		});
+		busboy.on('finish', function(){
+			res.writeHead(200, {'Connection': 'close' });
+			res.end('Thats all!');
+		});
+		
+		return req.pipe(busboy);
+	});
 };
