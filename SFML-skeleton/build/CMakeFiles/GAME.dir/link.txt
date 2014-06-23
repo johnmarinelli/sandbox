@@ -1,1 +1,0 @@
-/usr/bin/c++   -g    CMakeFiles/GAME.dir/main.cpp.o CMakeFiles/GAME.dir/Game.cpp.o  -o GAME -rdynamic /usr/local/lib/SFML-2.1/lib/libsfml-system.so /usr/local/lib/SFML-2.1/lib/libsfml-window.so /usr/local/lib/SFML-2.1/lib/libsfml-graphics.so -Wl,-rpath,/usr/local/lib/SFML-2.1/lib: 

@@ -1,1 +1,0 @@
-/home/administrator/Documents/c++11/sfml/proj2/build/CMakeFiles/GAME.dir
