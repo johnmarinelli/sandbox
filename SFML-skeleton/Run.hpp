@@ -11,24 +11,23 @@ int Run(Game& game, sf::RenderWindow& window)
 	sf::Clock clock;
 	sf::Time time = clock.getElapsedTime();
 
-	while(game.isRunning())
-	{
+	while(game.isRunning())	{
 		sf::Event event;
-		while(window.pollEvent(event))
-		{
-			//game.handlevents
+		while(window.pollEvent(event)){
+			game.handleEvents(event);
 		}
-	
-		time = clock.getElapsedTime();
-		clock.restart();
+
+		game.update(time.asMilliseconds());
 
 		window.clear(sf::Color::White);
-		//game.render
+		game.render();
 		window.display();
 
+		time = clock.getElapsedTime();
 		if(time.asMilliseconds() < FPS){
 			sf::sleep(sf::milliseconds(FPS - time.asMilliseconds()));
-		}
+		}	
+		clock.restart();
 	}
 
 	return 0;
