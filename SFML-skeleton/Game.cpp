@@ -2,12 +2,23 @@
 
 Game::Game(sf::RenderTarget& window) : mRenderTarget(&window)
 {
-//	mRenderTarget = std::make_shared<sf::RenderWindow>(window);
 }
 
 void Game::init()
 {
 	mIsRunning = true;
+}
+
+void Game::handleEvents(sf::Event event)
+{
+}
+
+void Game::update(float dTime)
+{
+}
+
+void Game::render()
+{
 }
 
 bool Game::isRunning() const
