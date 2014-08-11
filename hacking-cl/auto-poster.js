@@ -5,7 +5,7 @@
 * , and jQuery (your life requires jQuery anyway)
 */
 
-var email = 'jonmarinelli@hotmail.com';
+var email = 'xxx@xxx.com';
 var title = 'SUP';
 var body = 'ILL DO IT FOR A CHEESEBURGER';
 var location = 'behind ur truk'
@@ -14,17 +14,8 @@ var phoneNumber = '666-123-4567';
 
 //let's assume we've opened the html page here & we're at the "what type of posting is this" page.
 
-//for some reason, without putting the form into a variable CL blocks trigger events.  oh wait, it's to prevent this kind of software from working lulz
-var form = $(".catpick"); 
-
-//rewrite their onClick function, with their form bwahahah
 //value='so' is service offered
-$("input[value='so']").click(function(){ 
-  form.submit(); 
-  return true; 
-});
-
-//$("input[value='so']").prop('checked', true);
+$("input[value='so']").prop('checked', true);
 $("input[value='so']").trigger('click');
 
 //value=76 is computer services
@@ -47,13 +38,13 @@ $("input#postal_code").val(zipCode);
 $("textarea#PostingBody").val(body);
 
 $(".bigbutton[name='go']").trigger('click');
+
 /*
 * dynamically uploading files to their server.
 * this isn't illegal, right?
 * (it's just images, i promise)
 * still being worked on
 */
-
 var csc = $("input[name='cryptedStepCheck']").val();
 
 //in their http headers the data.file value is a blob
