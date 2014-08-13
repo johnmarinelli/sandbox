@@ -5,6 +5,19 @@
 * , and jQuery (your life requires jQuery anyway)
 */
 
+var check = function(domElement){
+  $(domElement).prop('checked', true);
+}
+
+var click = function(domElement){
+  $(domElement).trigger('click');
+}
+
+var checkAndClick = function(domElement){
+  check(domElement);
+  click(domElement);
+}
+
 var email = 'xxx@xxx.com';
 var title = 'SUP';
 var body = 'ILL DO IT FOR A CHEESEBURGER';
@@ -15,16 +28,19 @@ var phoneNumber = '666-123-4567';
 //let's assume we've opened the html page here & we're at the "what type of posting is this" page.
 
 //value='so' is service offered
-$("input[value='so']").prop('checked', true);
-$("input[value='so']").trigger('click');
+//$("input[value='so']").prop('checked', true);
+//$("input[value='so']").trigger('click');
+checkAndClick($("input[value='so']"));
 
 //value=76 is computer services
-$("input[value='76']").prop('checked', true);
-$("input[value='76']").trigger('click');
+//$("input[value='76']").prop('checked', true);
+//$("input[value='76']").trigger('click');
+checkAndClick($("input[value='76']"));
 
 //choose location that fits best.  for phoenix, '2' is e. valley
-$("input[value='2']").prop('checked', true);
-$("input[value='2']").trigger('click');
+//$("input[value='2']").prop('checked', true);
+//$("input[value='2']").trigger('click');
+checkAndClick($("input[value='2']"));
 
 /*
 * FINAL BOSS
@@ -40,9 +56,7 @@ $("textarea#PostingBody").val(body);
 $(".bigbutton[name='go']").trigger('click');
 
 /*
-* dynamically uploading files to their server.
-* this isn't illegal, right?
-* (it's just images, i promise)
+* dynamically uploading files to their server is hard
 * still being worked on
 */
 var csc = $("input[name='cryptedStepCheck']").val();
@@ -51,7 +65,9 @@ var csc = $("input[name='cryptedStepCheck']").val();
 $.ajax({
   type: 'post',
   data: { 
-    file:"http://marinelliworks.com/landing-page/assets/selfie.png", 
+    file: $.get("./picture_binary.php", function(data){
+			return data;
+		  }),
     cryptedStepCheck: csc,
       a: 'add',
   },
